@@ -7,13 +7,22 @@ This project contains a small Telegram bot that forwards incoming messages to an
 - A Telegram bot token
 - An OpenAI API key
 
-## Installation
-1. Create and activate a virtual environment (optional but recommended):
+## Quickstart
+1. **Clone and enter the project directory** (skip if you're already here):
+   ```bash
+   git clone <your-fork-or-clone-url>
+   cd team9
+   ```
+2. **Create and activate a virtual environment** (optional but recommended):
    ```bash
    python -m venv .venv
    source .venv/bin/activate
    ```
-2. Install the Python dependencies:
+   On Windows PowerShell, activate it with:
+   ```powershell
+   .\.venv\Scripts\Activate.ps1
+   ```
+3. **Install the Python dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
@@ -36,6 +45,15 @@ python bot.py
 ```
 
 The bot will begin polling Telegram for new messages and respond with OpenAI-generated replies. Check the console logs for status updates.
+
+If you prefer, you can keep your environment variables in a `.env` file and load them before running the script:
+
+```bash
+export $(grep -v '^#' .env | xargs)
+python bot.py
+```
+
+Replace `.env` with the path to the file that stores your secrets.
 
 ## Troubleshooting
 - Ensure the environment variables are set in the same shell session where you run `python bot.py`.
